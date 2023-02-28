@@ -14,6 +14,15 @@ public class CreditCard implements ValueObject<CreditCard.Params> {
     private Integer expireMonth;
     private Integer cvv;
 
+    public CreditCard(Name name, Lname lname, Integer cardNumber, Integer expireYear, Integer expireMonth, Integer cvv) {
+        this.name = name;
+        this.lname = lname;
+        this.cardNumber = cardNumber;
+        this.expireYear = expireYear;
+        this.expireMonth = expireMonth;
+        this.cvv = cvv;
+    }
+
     @Override
     public Params value() {
         return new Params() {

@@ -7,6 +7,11 @@ public class Parts implements ValueObject<Parts.Props> {
     private int availableNumber;
     private String reference;
 
+    public Parts(int availableNumber, String reference) {
+        this.availableNumber = availableNumber;
+        this.reference = reference;
+    }
+
     @Override
     public Props value() {
         return new Props() {
