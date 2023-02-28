@@ -1,6 +1,6 @@
 package co.com.sofkau.domain.bikesMAR;
 
-import co.com.sofkau.domain.bikesMAR.values.Price;
+import co.com.sofkau.domain.common.Price;
 import co.com.sofkau.domain.bikesMAR.values.Reference;
 import co.com.sofkau.domain.bikesMAR.values.Usage;
 import co.com.sofkau.domain.common.Id;

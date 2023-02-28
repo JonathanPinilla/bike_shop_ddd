@@ -1,4 +1,4 @@
-package co.com.sofkau.domain.bikesMAR.values;
+package co.com.sofkau.domain.common;
 
 import co.com.sofkau.generic.ValueObject;
 

@@ -2,10 +2,11 @@ package co.com.sofkau.domain.bikesMAR;
 
 import co.com.sofkau.domain.bikesMAR.values.*;
 import co.com.sofkau.domain.common.Id;
+import co.com.sofkau.domain.common.Price;
+import co.com.sofkau.domain.common.Type;
 import co.com.sofkau.generic.Entity;
 
 import java.util.List;
-import java.util.Objects;
 
 public class Bike extends Entity<Id> {
     private Brand brand;
