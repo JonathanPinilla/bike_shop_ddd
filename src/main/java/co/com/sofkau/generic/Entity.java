@@ -1,4 +1,4 @@
-package org.example.cardgame.generic;
+package co.com.sofkau.generic;
 
 
 public abstract class Entity<I extends Identity> {

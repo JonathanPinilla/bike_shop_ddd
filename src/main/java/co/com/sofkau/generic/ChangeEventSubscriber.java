@@ -1,4 +1,4 @@
-package org.example.cardgame.generic;
+package co.com.sofkau.generic;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
