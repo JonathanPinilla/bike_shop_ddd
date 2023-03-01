@@ -1,6 +1,6 @@
 package co.com.sofkau.domain.ArSale.values;
 
-import co.com.sofkau.domain.common.Id;
+import co.com.sofkau.domain.common.BikeId;
 import co.com.sofkau.domain.common.Price;
 import co.com.sofkau.generic.ValueObject;
 
@@ -52,7 +52,7 @@ public class Recipe implements ValueObject<Recipe.Props> {
         };
     }
 
-    public void addBike(Id bikeId) {
+    public void addBike(BikeId bikeId) {
         this.bikes.add(bikeId);
     }
 
