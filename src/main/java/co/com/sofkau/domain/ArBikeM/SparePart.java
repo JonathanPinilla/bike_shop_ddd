@@ -3,19 +3,19 @@ package co.com.sofkau.domain.ArBikeM;
 import co.com.sofkau.domain.common.Price;
 import co.com.sofkau.domain.ArBikeM.values.Reference;
 import co.com.sofkau.domain.ArBikeM.values.Usage;
-import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.domain.common.Name;
+import co.com.sofkau.domain.common.SparePartId;
 import co.com.sofkau.generic.Entity;
 
-public class SparePart extends Entity<Id>{
+public class SparePart extends Entity<SparePartId>{
 
     protected Name name;
     protected Reference reference;
     protected Usage usage;
     protected Price price;
 
-    public SparePart(Id id, Name name, Reference reference, Usage usage, Price price) {
-        super(id);
+    public SparePart(SparePartId sparePartId, Name name, Reference reference, Usage usage, Price price) {
+        super(sparePartId);
         this.name = name;
         this.reference = reference;
         this.usage = usage;

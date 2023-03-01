@@ -10,25 +10,25 @@ import co.com.sofkau.generic.DomainEvent;
 
 import java.util.List;
 
-public class BikesManagement extends AggregateRoot<Id> {
+public class BikesManagement extends AggregateRoot<BikesManagementId> {
 
     protected Bike bike;
     protected SparePart sparePart;
     protected List<SparePart> sparePartsList;
     protected Date creationDate;
 
-    public BikesManagement(Id id, Date creationDate) {
-        super(id);
+    public BikesManagement(BikesManagementId bikesManagementId, Date creationDate) {
+        super(bikesManagementId);
         subscribe(new BikeManagementEventChange(this));
         appendChange(new BikeManagementCreated(creationDate)).apply();
     }
 
-    public BikesManagement(Id id) {
-        super(id);
+    public BikesManagement(BikesManagementId bikesManagementId) {
+        super(bikesManagementId);
         subscribe(new BikeManagementEventChange(this));
     }
 
-    public static BikesManagement from(Id bikeManagementId, List<DomainEvent> events) {
+    public static BikesManagement from(BikesManagementId bikeManagementId, List<DomainEvent> events) {
         var bikeManagement = new BikesManagement(bikeManagementId);
         events.forEach(bikeManagement::applyEvent);
         return bikeManagement;

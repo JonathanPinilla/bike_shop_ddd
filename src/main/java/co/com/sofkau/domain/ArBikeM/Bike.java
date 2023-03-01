@@ -1,14 +1,15 @@
 package co.com.sofkau.domain.ArBikeM;
 
 import co.com.sofkau.domain.ArBikeM.values.*;
-import co.com.sofkau.domain.common.Id;
+import co.com.sofkau.domain.common.BikeId;
 import co.com.sofkau.domain.common.Price;
 import co.com.sofkau.domain.common.Type;
 import co.com.sofkau.generic.Entity;
 
 import java.util.List;
 
-public class Bike extends Entity<Id> {
+
+public class Bike extends Entity<BikeId> {
     protected Brand brand;
     protected Type type;
     protected Usage usage;
@@ -16,8 +17,8 @@ public class Bike extends Entity<Id> {
     protected Price price;
     protected Sold sold;
 
-    public Bike(Id id, Brand brand, Type type, Usage usage, List<Maintenance> maintenances, Price price, Sold sold) {
-        super(id);
+    public Bike(BikeId bikeId, Brand brand, Type type, Usage usage, List<Maintenance> maintenances, Price price, Sold sold) {
+        super(bikeId);
         this.brand = brand;
         this.type = type;
         this.usage = usage;
