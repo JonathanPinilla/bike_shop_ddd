@@ -2,6 +2,7 @@ package co.com.sofkau.domain.ArSale;
 
 import co.com.sofkau.domain.ArSale.events.*;
 import co.com.sofkau.domain.ArSale.values.*;
+import co.com.sofkau.domain.common.Date;
 import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.domain.common.Price;
 import co.com.sofkau.domain.common.Type;

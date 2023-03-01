@@ -2,7 +2,7 @@ package co.com.sofkau.domain.ArSale;
 
 import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.domain.common.Price;
-import co.com.sofkau.domain.ArSale.values.Date;
+import co.com.sofkau.domain.common.Date;
 import co.com.sofkau.domain.ArSale.values.ShippingTime;
 import co.com.sofkau.domain.ArSale.values.State;
 import co.com.sofkau.generic.Entity;

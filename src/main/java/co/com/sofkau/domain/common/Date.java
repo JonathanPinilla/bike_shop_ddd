@@ -1,4 +1,4 @@
-package co.com.sofkau.domain.ArSale.values;
+package co.com.sofkau.domain.common;
 
 import co.com.sofkau.generic.ValueObject;
 

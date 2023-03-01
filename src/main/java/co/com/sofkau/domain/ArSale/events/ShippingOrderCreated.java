@@ -1,6 +1,6 @@
 package co.com.sofkau.domain.ArSale.events;
 
-import co.com.sofkau.domain.ArSale.values.Date;
+import co.com.sofkau.domain.common.Date;
 import co.com.sofkau.domain.ArSale.values.ShippingTime;
 import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.domain.common.Price;
