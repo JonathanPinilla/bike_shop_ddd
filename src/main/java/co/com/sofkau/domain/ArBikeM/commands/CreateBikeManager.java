@@ -4,7 +4,7 @@ import co.com.sofkau.generic.Command;
 
 public class CreateBikeManager extends Command {
 
-    private final String bikeManagerId;
+    private String bikeManagerId;
 
     public CreateBikeManager(String bikeManagerId) {
         this.bikeManagerId = bikeManagerId;
@@ -12,5 +12,9 @@ public class CreateBikeManager extends Command {
 
     public String getBikeManagerId() {
         return bikeManagerId;
+    }
+
+    public void setBikeManagerId(String bikeManagerId) {
+        this.bikeManagerId = bikeManagerId;
     }
 }

@@ -3,10 +3,10 @@ package co.com.sofkau.domain.ArBikeM.commands;
 import co.com.sofkau.generic.Command;
 
 public class CreateBike extends Command {
-    private final String brand;
-    private final String type;
-    private final String usage;
-    private final String price;
+    private String brand;
+    private String type;
+    private String usage;
+    private String price;
 
     public CreateBike(String brand, String type, String usage, String price) {
         this.brand = brand;
@@ -19,15 +19,31 @@ public class CreateBike extends Command {
         return brand;
     }
 
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
     public String getType() {
         return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getUsage() {
         return usage;
     }
 
+    public void setUsage(String usage) {
+        this.usage = usage;
+    }
+
     public String getPrice() {
         return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

@@ -4,10 +4,10 @@ import co.com.sofkau.generic.Command;
 
 public class CreateSeller extends Command {
 
-    private final String sellerId;
-    private final String name;
-    private final String lname;
-    private final String charge;
+    private String sellerId;
+    private String name;
+    private String lname;
+    private String charge;
 
     public CreateSeller(String sellerId, String name, String lname, String charge) {
         this.sellerId = sellerId;
@@ -20,15 +20,31 @@ public class CreateSeller extends Command {
         return sellerId;
     }
 
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLname() {
         return lname;
     }
 
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
     public String getCharge() {
         return charge;
+    }
+
+    public void setCharge(String charge) {
+        this.charge = charge;
     }
 }

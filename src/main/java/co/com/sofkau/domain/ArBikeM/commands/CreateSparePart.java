@@ -4,11 +4,11 @@ import co.com.sofkau.generic.Command;
 
 public class CreateSparePart extends Command {
 
-    private final String id;
-    private final String name;
-    private final String reference;
-    private final String usage;
-    private final String price;
+    private String id;
+    private String name;
+    private String reference;
+    private String usage;
+    private String price;
 
     public CreateSparePart(String id, String name, String reference, String usage, String price) {
         this.id = id;
@@ -22,19 +22,39 @@ public class CreateSparePart extends Command {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getReference() {
         return reference;
     }
 
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
     public String getUsage() {
         return usage;
     }
 
+    public void setUsage(String usage) {
+        this.usage = usage;
+    }
+
     public String getPrice() {
         return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

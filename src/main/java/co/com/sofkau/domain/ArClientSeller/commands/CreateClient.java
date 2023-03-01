@@ -4,10 +4,10 @@ import co.com.sofkau.generic.Command;
 
 public class CreateClient extends Command {
 
-    private final String clientId;
-    private final String name;
-    private final String lname;
-    private final String address;
+    private String clientId;
+    private String name;
+    private String lname;
+    private String address;
 
     public CreateClient(String clientId, String name, String lname, String address) {
         this.clientId = clientId;
@@ -20,15 +20,31 @@ public class CreateClient extends Command {
         return clientId;
     }
 
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLname() {
         return lname;
     }
 
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
