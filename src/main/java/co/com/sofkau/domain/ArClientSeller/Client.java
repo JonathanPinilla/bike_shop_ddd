@@ -1,11 +1,13 @@
 package co.com.sofkau.domain.ArClientSeller;
 
 import co.com.sofkau.domain.ArClientSeller.values.*;
+import co.com.sofkau.domain.common.ClientId;
 import co.com.sofkau.domain.common.Name;
+import co.com.sofkau.generic.Entity;
 
 import java.util.List;
 
-public class Client {
+public class Client extends Entity<ClientId> {
 
     protected Name name;
     protected Lname lname;
@@ -13,7 +15,8 @@ public class Client {
     protected CreditCard creditCard;
     protected List<Sale> saleList;
 
-    public Client(Name name, Lname lname, Address address, CreditCard creditCard, List<Sale> saleList) {
+    public Client(ClientId clientId,Name name, Lname lname, Address address, CreditCard creditCard, List<Sale> saleList) {
+        super(clientId);
         this.name = name;
         this.lname = lname;
         this.address = address;

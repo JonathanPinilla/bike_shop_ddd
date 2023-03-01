@@ -4,33 +4,33 @@ import co.com.sofkau.domain.ArClientSeller.events.*;
 import co.com.sofkau.domain.ArClientSeller.values.Address;
 import co.com.sofkau.domain.ArClientSeller.values.Charge;
 import co.com.sofkau.domain.ArClientSeller.values.Lname;
+import co.com.sofkau.domain.common.ClientSellerManagerId;
 import co.com.sofkau.domain.common.Date;
-import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.domain.common.Name;
 import co.com.sofkau.generic.AggregateRoot;
 import co.com.sofkau.generic.DomainEvent;
 
 import java.util.List;
 
-public class ClientSellerManager extends AggregateRoot<Id> {
+public class ClientSellerManager extends AggregateRoot<ClientSellerManagerId> {
 
-    protected Id clientSellerId;
+    protected ClientSellerManagerId clientSellerId;
     protected Client client;
     protected Seller seller;
     protected Date creationDate;
 
-    public ClientSellerManager(Id entityId, Date creationDate) {
-        super(entityId);
+    public ClientSellerManager(ClientSellerManagerId clientSellerId, Date creationDate) {
+        super(clientSellerId);
         subscribe(new ClientSellerManagerEventChange(this));
         appendChange(new ClientSellerCreated(creationDate)).apply();
     }
 
-    private ClientSellerManager(Id clientSellerId) {
+    private ClientSellerManager(ClientSellerManagerId clientSellerId) {
         super(clientSellerId);
         subscribe(new ClientSellerManagerEventChange(this));
     }
 
-    public static ClientSellerManager from(Id clientSellerId, List<DomainEvent> events) {
+    public static ClientSellerManager from(ClientSellerManagerId clientSellerId, List<DomainEvent> events) {
         var clientSellerManager = new ClientSellerManager(clientSellerId);
         events.forEach(clientSellerManager::applyEvent);
         return clientSellerManager;
