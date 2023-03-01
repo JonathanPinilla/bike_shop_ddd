@@ -9,13 +9,13 @@ public class SellerCreated extends DomainEvent {
 
     private final Name name;
     private final Lname lname;
-    private final Charge address;
+    private final Charge charge;
 
     public SellerCreated(Name name, Lname lname, Charge charge) {
         super("co.com.sofkau.ArClientSeller.Seller.created");
         this.name = name;
         this.lname = lname;
-        this.address = charge;
+        this.charge = charge;
     }
 
     public Name getName() {
@@ -26,7 +26,7 @@ public class SellerCreated extends DomainEvent {
         return lname;
     }
 
-    public Charge getAddress() {
-        return address;
+    public Charge getCharge() {
+        return charge;
     }
 }

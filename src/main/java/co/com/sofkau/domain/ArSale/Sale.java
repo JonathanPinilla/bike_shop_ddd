@@ -13,6 +13,7 @@ import java.util.List;
 
 public class Sale extends AggregateRoot<Id> {
 
+
     protected Client client;
     protected Seller seller;
     protected Payment payment;
