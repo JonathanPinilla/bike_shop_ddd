@@ -1,22 +1,24 @@
 package co.com.sofkau.domain.ArSale.commands;
 
+import co.com.sofkau.domain.ArSale.ShippingOrder;
+import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.generic.Command;
 
 public class AddShippingOrderToSale extends Command {
 
-    private final String saleId;
-    private final String shippingOrderId;
+    private final Id saleId;
+    private final ShippingOrder shippingOrder;
 
-    public AddShippingOrderToSale(String saleId, String shippingOrderId) {
+    public AddShippingOrderToSale(Id saleId, ShippingOrder shippingOrder) {
         this.saleId = saleId;
-        this.shippingOrderId = shippingOrderId;
+        this.shippingOrder = shippingOrder;
     }
 
-    public String getSaleId() {
+    public Id getSaleId() {
         return saleId;
     }
 
-    public String getShippingOrderId() {
-        return shippingOrderId;
+    public ShippingOrder getShippingOrder() {
+        return shippingOrder;
     }
 }

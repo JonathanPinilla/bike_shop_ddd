@@ -1,22 +1,24 @@
 package co.com.sofkau.domain.ArSale.commands;
 
+import co.com.sofkau.domain.ArSale.Payment;
+import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.generic.Command;
 
 public class AddPaymentToSale extends Command {
 
-    private final String saleId;
-    private final String paymentId;
+    private final Id saleId;
+    private final Payment payment;
 
-    public AddPaymentToSale(String saleId, String paymentId) {
+    public AddPaymentToSale(Id saleId, Payment payment) {
         this.saleId = saleId;
-        this.paymentId = paymentId;
+        this.payment = payment;
     }
 
-    public String getSaleId() {
+    public Id getSaleId() {
         return saleId;
     }
 
-    public String getPaymentId() {
-        return paymentId;
+    public Payment getPayment() {
+        return payment;
     }
 }
