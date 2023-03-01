@@ -1,22 +1,24 @@
 package co.com.sofkau.domain.ArBikeM.commands;
 
+import co.com.sofkau.domain.ArBikeM.Bike;
+import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.generic.Command;
 
 public class AddBikeToManager extends Command {
 
-    private final String bikeManagerId;
-    private final String bikeId;
+    private final Id bikeManagerId;
+    private final Bike bike;
 
-    public AddBikeToManager(String bikeManagerId, String bikeId) {
+    public AddBikeToManager(Id bikeManagerId, Bike bike) {
         this.bikeManagerId = bikeManagerId;
-        this.bikeId = bikeId;
+        this.bike = bike;
     }
 
-    public String getBikeManagerId() {
+    public Id getBikeManagerId() {
         return bikeManagerId;
     }
 
-    public String getBikeId() {
-        return bikeId;
+    public Bike getBike() {
+        return bike;
     }
 }

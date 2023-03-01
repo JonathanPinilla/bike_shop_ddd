@@ -1,23 +1,25 @@
 package co.com.sofkau.domain.ArBikeM.commands;
 
+import co.com.sofkau.domain.ArBikeM.SparePart;
+import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.generic.Command;
 
 public class AddSparePartToManager extends Command {
 
-    private final String bikeManagerId;
-    private final String sparePartID;
+    private final Id bikeManagerId;
+    private final SparePart sparePart;
 
-    public AddSparePartToManager(String bikeManagerId, String sparePartID) {
+    public AddSparePartToManager(Id bikeManagerId, SparePart sparePart) {
         this.bikeManagerId = bikeManagerId;
-        this.sparePartID = sparePartID;
+        this.sparePart = sparePart;
     }
 
-    public String getBikeManagerId() {
+    public Id getBikeManagerId() {
         return bikeManagerId;
     }
 
-    public String getSparePartID() {
-        return sparePartID;
+    public SparePart getSparePart() {
+        return sparePart;
     }
 
 }
