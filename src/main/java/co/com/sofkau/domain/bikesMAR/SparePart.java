@@ -9,10 +9,10 @@ import co.com.sofkau.generic.Entity;
 
 public class SparePart extends Entity<Id>{
 
-    private Name name;
-    private Reference reference;
-    private Usage usage;
-    private Price price;
+    protected Name name;
+    protected Reference reference;
+    protected Usage usage;
+    protected Price price;
 
     public SparePart(Id id, Name name, Reference reference, Usage usage, Price price) {
         super(id);

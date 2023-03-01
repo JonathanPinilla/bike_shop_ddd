@@ -9,12 +9,12 @@ import co.com.sofkau.generic.Entity;
 import java.util.List;
 
 public class Bike extends Entity<Id> {
-    private Brand brand;
-    private Type type;
-    private Usage usage;
-    private List<Maintenance> maintenances;
-    private Price price;
-    private Sold sold;
+    protected Brand brand;
+    protected Type type;
+    protected Usage usage;
+    protected List<Maintenance> maintenances;
+    protected Price price;
+    protected Sold sold;
 
     public Bike(Id id, Brand brand, Type type, Usage usage, List<Maintenance> maintenances, Price price, Sold sold) {
         super(id);

@@ -1,5 +1,7 @@
 package co.com.sofkau.domain.saleAR.values;
 
+import co.com.sofkau.domain.bikesMAR.BikesManagement;
+import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.domain.common.Price;
 import co.com.sofkau.generic.ValueObject;
 
@@ -51,11 +53,19 @@ public class Recipe implements ValueObject<Recipe.Props> {
         };
     }
 
-    interface Props{
+    public void addBike(Id bikeId) {
+        this.bikes.add(bikeId);
+    }
+
+    interface Props {
         Bikes bikes();
+
         Client client();
+
         Seller seller();
+
         Price price();
+
         LocalDate localDate();
     }
 }

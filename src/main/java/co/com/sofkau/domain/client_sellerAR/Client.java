@@ -7,11 +7,11 @@ import java.util.List;
 
 public class Client {
 
-    private Name name;
-    private Lname lname;
-    private Address address;
-    private CreditCard creditCard;
-    private List<Sale> saleList;
+    protected Name name;
+    protected Lname lname;
+    protected Address address;
+    protected CreditCard creditCard;
+    protected List<Sale> saleList;
 
     public Client(Name name, Lname lname, Address address, CreditCard creditCard, List<Sale> saleList) {
         this.name = name;
