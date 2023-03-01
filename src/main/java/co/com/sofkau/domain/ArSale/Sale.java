@@ -6,46 +6,48 @@ import co.com.sofkau.domain.common.*;
 import co.com.sofkau.generic.AggregateRoot;
 import co.com.sofkau.generic.DomainEvent;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Sale extends AggregateRoot<SaleId> {
 
 
-    protected Client client;
-    protected Seller seller;
+    protected ClientId client;
+    protected SellerId seller;
     protected Payment payment;
     protected ShippingOrder shippingOrder;
 
-    public Sale(SaleId saleId, Client client, Seller seller, Payment payment, ShippingOrder shippingOrder) {
+    public Sale(SaleId saleId, ClientId clientId, SellerId sellerId, Payment payment, ShippingOrder shippingOrder) {
         super(saleId);
         subscribe(new SaleEventChange(this));
-        appendChange(new SaleCreated(client,seller));
+        appendChange(new SaleCreated(clientId.value(), sellerId.value()));
     }
 
-    public Sale(SaleId saleId){
+    public Sale(SaleId saleId) {
         super(saleId);
-        subscribe( new SaleEventChange(this));
+        subscribe(new SaleEventChange(this));
     }
 
-    public static Sale from(SaleId saleId, List<DomainEvent> events){
+    public static Sale from(SaleId saleId, List<DomainEvent> events) {
         var sale = new Sale(saleId);
         events.forEach(sale::applyEvent);
         return sale;
     }
 
-    public void createPayment(PaymentId paymentId, Type type, Bank bank){
+    public void createPayment(String paymentId, String type, String bank) {
         appendChange(new PaymentCreated(paymentId, type, bank)).apply();
     }
 
-    public void createShippingOrder(ShippingOrderId shippingOrderId, Date date, Price price, ShippingTime shippingTime){
+    public void createShippingOrder(String shippingOrderId, LocalDate date, String price, LocalDateTime shippingTime) {
         appendChange(new ShippingOrderCreated(shippingOrderId, date, price, shippingTime)).apply();
     }
 
-    public void addPayment(Payment payment){
-        appendChange(new PaymentAdded(payment)).apply();
+    public void addPayment(String paymentId, String type, String bank, Recipe recipe) {
+        appendChange(new PaymentAdded(paymentId, type, bank, recipe)).apply();
     }
 
-    public void addShippingOrder(ShippingOrder shippingOrder){
-        appendChange(new ShippingOrderAdded(shippingOrder)).apply();
+    public void addShippingOrder(String shippingOrderId, LocalDate date, Double price, LocalDateTime shippingTime, String state){
+        appendChange(new ShippingOrderAdded(shippingOrderId,date,price,shippingTime,state)).apply();
     }
 }

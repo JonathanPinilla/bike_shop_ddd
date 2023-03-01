@@ -4,17 +4,16 @@ import co.com.sofkau.domain.ArBikeM.values.Brand;
 import co.com.sofkau.domain.ArBikeM.values.Usage;
 import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.domain.common.Price;
-import co.com.sofkau.domain.common.Type;
 import co.com.sofkau.generic.Command;
 
 public class CreateBikeCommand extends Command {
     private Id id;
     private Brand brand;
-    private Type type;
+    private String type;
     private Usage usage;
     private Price price;
 
-    public CreateBikeCommand(Id id,Brand brand, Type type, Usage usage, Price price) {
+    public CreateBikeCommand(Id id, Brand brand, String type, Usage usage, Price price) {
         this.id = id;
         this.brand = brand;
         this.type = type;
@@ -36,11 +35,11 @@ public class CreateBikeCommand extends Command {
         this.brand = brand;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 

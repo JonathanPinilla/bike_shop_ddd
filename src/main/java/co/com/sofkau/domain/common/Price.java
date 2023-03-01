@@ -2,16 +2,16 @@ package co.com.sofkau.domain.common;
 
 import co.com.sofkau.generic.ValueObject;
 
-public class Price implements ValueObject<Integer> {
+public class Price implements ValueObject<Double> {
 
-    private int price;
+    private Double price;
 
-    public Price(int price) {
+    public Price(Double price) {
         this.price = price;
     }
 
     @Override
-    public Integer value() {
+    public Double value() {
         return price;
     }
 }

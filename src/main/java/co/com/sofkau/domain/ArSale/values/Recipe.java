@@ -1,7 +1,9 @@
 package co.com.sofkau.domain.ArSale.values;
 
 import co.com.sofkau.domain.common.BikeId;
+import co.com.sofkau.domain.common.ClientId;
 import co.com.sofkau.domain.common.Price;
+import co.com.sofkau.domain.common.SellerId;
 import co.com.sofkau.generic.ValueObject;
 
 import java.time.LocalDate;
@@ -11,10 +13,10 @@ public class Recipe implements ValueObject<Recipe.Props> {
     private Bikes bikes;
     private Price price;
     private LocalDate localDate;
-    private Client client;
-    private Seller seller;
+    private ClientId client;
+    private SellerId seller;
 
-    public Recipe(Bikes bikes, Price price, LocalDate localDate, Client client, Seller seller) {
+    public Recipe(Bikes bikes, Price price, LocalDate localDate, ClientId client, SellerId seller) {
         this.bikes = bikes;
         this.price = price;
         this.localDate = localDate;
@@ -31,12 +33,12 @@ public class Recipe implements ValueObject<Recipe.Props> {
             }
 
             @Override
-            public Client client() {
+            public ClientId client() {
                 return client;
             }
 
             @Override
-            public Seller seller() {
+            public SellerId seller() {
                 return seller;
             }
 
@@ -59,9 +61,9 @@ public class Recipe implements ValueObject<Recipe.Props> {
     interface Props {
         Bikes bikes();
 
-        Client client();
+        ClientId client();
 
-        Seller seller();
+        SellerId seller();
 
         Price price();
 

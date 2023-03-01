@@ -1,15 +1,12 @@
 package co.com.sofkau.domain.ArSale;
 
 import co.com.sofkau.domain.common.BikeId;
-import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.domain.common.PaymentId;
-import co.com.sofkau.domain.common.Type;
 import co.com.sofkau.domain.ArSale.values.Bank;
 import co.com.sofkau.domain.ArSale.values.Recipe;
 
+import co.com.sofkau.domain.common.Type;
 import co.com.sofkau.generic.Entity;
-
-import java.util.Objects;
 
 
 public class Payment extends Entity<PaymentId> {
@@ -25,8 +22,16 @@ public class Payment extends Entity<PaymentId> {
         this.recipe = recipe;
     }
 
-    public void updateRecipeBikes(BikeId bikeId) {
-        this.recipe.addBike(bikeId);
+    public Type type() {
+        return type;
+    }
+
+    public Bank bank() {
+        return bank;
+    }
+
+    public Recipe recipe() {
+        return recipe;
     }
 
 }

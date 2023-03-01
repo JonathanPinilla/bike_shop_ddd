@@ -1,19 +1,18 @@
 package co.com.sofkau.domain.ArSale.events;
 
-import co.com.sofkau.domain.common.Date;
-import co.com.sofkau.domain.ArSale.values.ShippingTime;
-import co.com.sofkau.domain.common.Price;
-import co.com.sofkau.domain.common.ShippingOrderId;
 import co.com.sofkau.generic.DomainEvent;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ShippingOrderCreated extends DomainEvent {
 
-    private final ShippingOrderId price;
-    private final Date localDate;
-    private final Price shippingTime;
-    private final ShippingTime state;
+    private final String price;
+    private final LocalDate localDate;
+    private final String shippingTime;
+    private final LocalDateTime state;
 
-    public ShippingOrderCreated(ShippingOrderId price, Date localDate, Price shippingTime, ShippingTime state) {
+    public ShippingOrderCreated(String price, LocalDate localDate, String shippingTime, LocalDateTime state) {
         super("co.com.sofkau.ArSale.ShippingOrder.created");
         this.price = price;
         this.localDate = localDate;
@@ -21,19 +20,19 @@ public class ShippingOrderCreated extends DomainEvent {
         this.state = state;
     }
 
-    public ShippingOrderId getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public Date getLocalDate() {
+    public LocalDate getLocalDate() {
         return localDate;
     }
 
-    public Price getShippingTime() {
+    public String getShippingTime() {
         return shippingTime;
     }
 
-    public ShippingTime getState() {
+    public LocalDateTime getState() {
         return state;
     }
 }

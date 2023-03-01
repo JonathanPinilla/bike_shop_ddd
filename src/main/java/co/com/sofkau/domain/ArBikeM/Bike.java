@@ -3,7 +3,6 @@ package co.com.sofkau.domain.ArBikeM;
 import co.com.sofkau.domain.ArBikeM.values.*;
 import co.com.sofkau.domain.common.BikeId;
 import co.com.sofkau.domain.common.Price;
-import co.com.sofkau.domain.common.Type;
 import co.com.sofkau.generic.Entity;
 
 import java.util.List;
@@ -11,13 +10,13 @@ import java.util.List;
 
 public class Bike extends Entity<BikeId> {
     protected Brand brand;
-    protected Type type;
+    protected String type;
     protected Usage usage;
     protected List<Maintenance> maintenances;
     protected Price price;
     protected Sold sold;
 
-    public Bike(BikeId bikeId, Brand brand, Type type, Usage usage, List<Maintenance> maintenances, Price price, Sold sold) {
+    public Bike(BikeId bikeId, Brand brand, String type, Usage usage, List<Maintenance> maintenances, Price price, Sold sold) {
         super(bikeId);
         this.brand = brand;
         this.type = type;
@@ -35,7 +34,7 @@ public class Bike extends Entity<BikeId> {
         this.sold = sold;
     }
 
-    public void changePrice(String reason, Price price) {
+    public void changePrice(java.lang.String reason, Price price) {
         if (!reason.equals("IPC")) {
             throw new IllegalArgumentException("The reason should be IPC or else you can't change the price");
         }
@@ -46,7 +45,7 @@ public class Bike extends Entity<BikeId> {
         return brand;
     }
 
-    public Type type(){
+    public String type(){
         return type;
     }
 

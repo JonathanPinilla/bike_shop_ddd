@@ -34,7 +34,7 @@ public class BikesManagement extends AggregateRoot<BikesManagementId> {
         return bikeManagement;
     }
 
-    public void createBike(Id bikeId, Brand brand, Type type, Usage usage, Price price) {
+    public void createBike(Id bikeId, Brand brand, String type, Usage usage, Price price) {
         appendChange(new BikeCreated(bikeId, brand, type, usage, price)).apply();
     }
 
