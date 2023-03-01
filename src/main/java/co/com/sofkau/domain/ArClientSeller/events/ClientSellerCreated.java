@@ -1,14 +1,13 @@
-package co.com.sofkau.domain.ArBikeM.events;
+package co.com.sofkau.domain.ArClientSeller.events;
 
 import co.com.sofkau.domain.common.Date;
 import co.com.sofkau.generic.DomainEvent;
 
-public class BikeManagementCreated extends DomainEvent {
-
+public class ClientSellerCreated extends DomainEvent {
     private final Date creationDate;
 
-    public BikeManagementCreated(Date creationDate) {
-        super("co.com.sofkau.ArBikeM.BikeManagement.created");
+    public ClientSellerCreated(Date creationDate) {
+        super("co.com.sofkau.ArClientSeller");
         this.creationDate = creationDate;
     }
 
