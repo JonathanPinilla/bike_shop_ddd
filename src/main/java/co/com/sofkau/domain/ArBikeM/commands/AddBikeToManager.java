@@ -1,24 +1,54 @@
 package co.com.sofkau.domain.ArBikeM.commands;
 
 import co.com.sofkau.domain.ArBikeM.Bike;
-import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.generic.Command;
 
 public class AddBikeToManager extends Command {
 
-    private final Id bikeManagerId;
-    private final Bike bike;
+    private final String bikeManagerId;
+    private final String bikeId;
+    private final String brand;
+    private final String type;
+    private final String usage;
+    private final Double price;
+    private final Boolean sold;
 
-    public AddBikeToManager(Id bikeManagerId, Bike bike) {
+    public AddBikeToManager(String bikeManagerId, String bikeId, String brand, String type, String usage, Double price, Boolean sold) {
         this.bikeManagerId = bikeManagerId;
-        this.bike = bike;
+        this.bikeId = bikeId;
+        this.brand = brand;
+        this.type = type;
+        this.usage = usage;
+        this.price = price;
+        this.sold = sold;
     }
 
-    public Id getBikeManagerId() {
+    public String getBikeId() {
+        return bikeId;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getUsage() {
+        return usage;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public Boolean getSold() {
+        return sold;
+    }
+
+    public String getBikeManagerId() {
         return bikeManagerId;
     }
 
-    public Bike getBike() {
-        return bike;
-    }
 }

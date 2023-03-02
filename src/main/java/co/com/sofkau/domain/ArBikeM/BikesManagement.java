@@ -1,9 +1,7 @@
 package co.com.sofkau.domain.ArBikeM;
 
 import co.com.sofkau.domain.ArBikeM.events.*;
-import co.com.sofkau.domain.ArBikeM.values.Brand;
-import co.com.sofkau.domain.ArBikeM.values.Reference;
-import co.com.sofkau.domain.ArBikeM.values.Usage;
+import co.com.sofkau.domain.ArSale.values.Bikes;
 import co.com.sofkau.domain.common.*;
 import co.com.sofkau.generic.AggregateRoot;
 import co.com.sofkau.generic.DomainEvent;
@@ -12,8 +10,7 @@ import java.util.List;
 
 public class BikesManagement extends AggregateRoot<BikesManagementId> {
 
-    protected Bike bike;
-    protected SparePart sparePart;
+    protected List<Bikes> bikesList;
     protected List<SparePart> sparePartsList;
     protected Date creationDate;
 
@@ -34,27 +31,19 @@ public class BikesManagement extends AggregateRoot<BikesManagementId> {
         return bikeManagement;
     }
 
-    public void createBike(Id bikeId, Brand brand, String type, Usage usage, Price price) {
-        appendChange(new BikeCreated(bikeId, brand, type, usage, price)).apply();
+    public void createBike(String bikeId, String brand, String type, String usage, Double price, Boolean sold) {
+        appendChange(new BikeCreated(bikeId, brand, type, usage, price, sold)).apply();
     }
 
-    public void createSparePart(Id sparePartId, Name name, Reference reference, Usage usage, Price price){
+    public void createSparePart(String sparePartId, String name, String reference, String usage, Double price) {
         appendChange(new SparePartCreated(sparePartId, name, reference, usage, price)).apply();
     }
 
-    public void addBike(Bike bike){
-        appendChange(new BikeAdded(bike)).apply();
+    public void addBike(String bikeId, String brand, String type, String usage, Double price, Boolean sold) {
+        appendChange(new BikeAdded(bikeId, brand, type, usage, price, sold)).apply();
     }
 
-    public void addSparePart(SparePart sparePart){
-        appendChange(new SparePartAdded(sparePart)).apply();
-    }
-
-    public Price getBikePrice() {
-        return this.bike.price();
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
+    public void addSparePart(String sparePartId, String name, String reference, String usage, Double price) {
+        appendChange(new SparePartAdded(sparePartId, name, reference, usage, price)).apply();
     }
 }

@@ -1,33 +1,31 @@
 package co.com.sofkau.domain.ArBikeM.events;
 
-import co.com.sofkau.domain.ArBikeM.values.Brand;
-import co.com.sofkau.domain.ArBikeM.values.Usage;
-import co.com.sofkau.domain.common.Id;
-import co.com.sofkau.domain.common.Price;
 import co.com.sofkau.generic.DomainEvent;
 
 public class BikeCreated extends DomainEvent {
 
-    private final Id id;
-    private final Brand brand;
+    private final String bikeId;
+    private final String brand;
     private final String type;
-    private final Usage usage;
-    private final Price price;
+    private final String usage;
+    private final Double price;
+    private final Boolean sold;
 
-    public BikeCreated(Id id, Brand brand, String type1, Usage usage, Price price) {
+    public BikeCreated(String bikeId, String brand, String type1, String usage, Double price, Boolean sold) {
         super("co.com.sofkau.ArBikeM.Bike.created");
-        this.id = id;
+        this.bikeId = bikeId;
         this.brand = brand;
         this.type = type1;
         this.usage = usage;
         this.price = price;
+        this.sold = sold;
     }
 
-    public Id getId(){
-        return id;
+    public String getBikeId(){
+        return bikeId;
     }
 
-    public Brand getBrand() {
+    public String getBrand() {
         return brand;
     }
 
@@ -35,11 +33,15 @@ public class BikeCreated extends DomainEvent {
         return type;
     }
 
-    public Usage getUsage() {
+    public String getUsage() {
         return usage;
     }
 
-    public Price getPrice() {
+    public Double getPrice() {
         return price;
+    }
+
+    public Boolean getSold() {
+        return sold;
     }
 }

@@ -1,19 +1,15 @@
 package co.com.sofkau.domain.ArBikeM.commands;
 
-import co.com.sofkau.domain.ArBikeM.values.Brand;
-import co.com.sofkau.domain.ArBikeM.values.Usage;
-import co.com.sofkau.domain.common.Id;
-import co.com.sofkau.domain.common.Price;
 import co.com.sofkau.generic.Command;
 
 public class CreateBikeCommand extends Command {
-    private Id id;
-    private Brand brand;
+    private String id;
+    private String brand;
     private String type;
-    private Usage usage;
-    private Price price;
+    private String usage;
+    private Double price;
 
-    public CreateBikeCommand(Id id, Brand brand, String type, Usage usage, Price price) {
+    public CreateBikeCommand(String id, String brand, String type, String usage, Double price) {
         this.id = id;
         this.brand = brand;
         this.type = type;
@@ -21,17 +17,17 @@ public class CreateBikeCommand extends Command {
         this.price = price;
     }
 
-    public Id getId(){return id;}
+    public String getId(){return id;}
 
-    public void setId(Id id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Brand getBrand() {
+    public String getBrand() {
         return brand;
     }
 
-    public void setBrand(Brand brand) {
+    public void setBrand(String brand) {
         this.brand = brand;
     }
 
@@ -43,19 +39,19 @@ public class CreateBikeCommand extends Command {
         this.type = type;
     }
 
-    public Usage getUsage() {
+    public String getUsage() {
         return usage;
     }
 
-    public void setUsage(Usage usage) {
+    public void setUsage(String usage) {
         this.usage = usage;
     }
 
-    public Price getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Price price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }
