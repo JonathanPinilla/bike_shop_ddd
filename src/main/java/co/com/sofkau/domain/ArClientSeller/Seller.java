@@ -2,12 +2,9 @@ package co.com.sofkau.domain.ArClientSeller;
 
 import co.com.sofkau.domain.ArClientSeller.values.Charge;
 import co.com.sofkau.domain.ArClientSeller.values.Lname;
-import co.com.sofkau.domain.ArClientSeller.values.Sale;
 import co.com.sofkau.domain.common.Name;
 import co.com.sofkau.domain.common.SellerId;
 import co.com.sofkau.generic.Entity;
-
-import java.util.List;
 
 public class Seller extends Entity<SellerId> {
 
