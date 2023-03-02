@@ -3,7 +3,6 @@ package co.com.sofkau.domain.ArClientSeller;
 import co.com.sofkau.domain.ArClientSeller.values.Charge;
 import co.com.sofkau.domain.ArClientSeller.values.Lname;
 import co.com.sofkau.domain.ArClientSeller.values.Sale;
-import co.com.sofkau.domain.common.Id;
 import co.com.sofkau.domain.common.Name;
 import co.com.sofkau.domain.common.SellerId;
 import co.com.sofkau.generic.Entity;
@@ -15,14 +14,12 @@ public class Seller extends Entity<SellerId> {
     private Name name;
     private Lname lname;
     private Charge charge;
-    private List<Sale> saleList;
 
-    public Seller(SellerId sellerId, Name name, Lname lname, Charge charge, List<Sale> saleList) {
+    public Seller(SellerId sellerId, Name name, Lname lname, Charge charge) {
         super(sellerId);
         this.name = name;
         this.lname = lname;
         this.charge = charge;
-        this.saleList = saleList;
     }
 
     public void updateSellerName(String reason, Name name) {
@@ -52,10 +49,6 @@ public class Seller extends Entity<SellerId> {
 
     }
 
-    public void updateSalesList(Sale sale) {
-        this.saleList.add(sale);
-    }
-
     public Name name() {
         return name;
     }
@@ -66,9 +59,5 @@ public class Seller extends Entity<SellerId> {
 
     public Charge charge() {
         return charge;
-    }
-
-    public List<Sale> saleList() {
-        return saleList;
     }
 }

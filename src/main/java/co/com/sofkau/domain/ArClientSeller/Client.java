@@ -13,15 +13,13 @@ public class Client extends Entity<ClientId> {
     protected Lname lname;
     protected Address address;
     protected CreditCard creditCard;
-    protected List<Sale> saleList;
 
-    public Client(ClientId clientId,Name name, Lname lname, Address address, CreditCard creditCard, List<Sale> saleList) {
+    public Client(ClientId clientId,Name name, Lname lname, Address address, CreditCard creditCard) {
         super(clientId);
         this.name = name;
         this.lname = lname;
         this.address = address;
         this.creditCard = creditCard;
-        this.saleList = saleList;
     }
 
     public void updateClientName(String reason, Name name) {
@@ -55,10 +53,6 @@ public class Client extends Entity<ClientId> {
         this.creditCard = creditCard;
     }
 
-    public void updateSalesList(Sale sale) {
-        this.saleList.add(sale);
-    }
-
     public Name name() {
         return name;
     }
@@ -73,9 +67,5 @@ public class Client extends Entity<ClientId> {
 
     public CreditCard creditCard() {//Check security actions in this case
         return creditCard;
-    }
-
-    public List<Sale> saleList() {
-        return saleList;
     }
 }

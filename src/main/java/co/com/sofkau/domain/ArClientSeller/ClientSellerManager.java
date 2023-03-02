@@ -4,9 +4,7 @@ import co.com.sofkau.domain.ArClientSeller.events.*;
 import co.com.sofkau.domain.ArClientSeller.values.Address;
 import co.com.sofkau.domain.ArClientSeller.values.Charge;
 import co.com.sofkau.domain.ArClientSeller.values.Lname;
-import co.com.sofkau.domain.common.ClientSellerManagerId;
-import co.com.sofkau.domain.common.Date;
-import co.com.sofkau.domain.common.Name;
+import co.com.sofkau.domain.common.*;
 import co.com.sofkau.generic.AggregateRoot;
 import co.com.sofkau.generic.DomainEvent;
 
@@ -15,8 +13,8 @@ import java.util.List;
 public class ClientSellerManager extends AggregateRoot<ClientSellerManagerId> {
 
     protected ClientSellerManagerId clientSellerId;
-    protected Client client;
-    protected Seller seller;
+    protected List<Client> clientList;
+    protected List<Seller> sellerList;
     protected Date creationDate;
 
     public ClientSellerManager(ClientSellerManagerId clientSellerId, Date creationDate) {
@@ -37,26 +35,26 @@ public class ClientSellerManager extends AggregateRoot<ClientSellerManagerId> {
     }
 
     public void createClient(Name name, Lname lname, Address address) {
-        appendChange(new ClientCreated(name, lname, address)).apply();
+        appendChange(new ClientCreated(name.value(), lname.value(), address.value())).apply();
     }
 
     public void createSeller(Name name, Lname lname, Charge charge) {
-        appendChange(new SellerCreated(name, lname, charge)).apply();
+        appendChange(new SellerCreated(name.value(), lname.value(), charge.value())).apply();
     }
 
-    public void addClient(Client client) {
-        appendChange(new ClientAdded(client)).apply();
+    public void addClient(ClientId clientId, Name name, Lname lname, Address address) {
+        appendChange(new ClientAdded(clientId.value(), name.value(), lname.value(), address.value())).apply();
     }
 
-    public void addSeller(Seller seller) {
-        appendChange(new SellerAdded(seller)).apply();
+    public void addSeller(SellerId sellerId, Name name, Lname lname, Charge charge) {
+        appendChange(new SellerAdded(sellerId.value(), name.value(), lname.value(), charge.value())).apply();
     }
 
-    public Client getClient() {
-        return client;
+    public List<Client> getClientList() {
+        return clientList;
     }
 
-    public Seller getSeller() {
-        return seller;
+    public List<Seller> getSellerList() {
+        return sellerList;
     }
 }

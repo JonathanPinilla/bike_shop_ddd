@@ -2,11 +2,16 @@ package co.com.sofkau.domain.ArClientSeller.commands;
 
 import co.com.sofkau.generic.Command;
 
-public class CreateClientSellerManager extends Command {
-    private String clientSellerId;
+import java.time.LocalDate;
 
-    public CreateClientSellerManager(String clientSellerId) {
+public class CreateClientSellerManager extends Command {
+
+    private String clientSellerId;
+    private LocalDate creationDate;
+
+    public CreateClientSellerManager(String clientSellerId, LocalDate creationDate) {
         this.clientSellerId = clientSellerId;
+        this.creationDate = creationDate;
     }
 
     public String getClientSellerId() {
@@ -15,5 +20,13 @@ public class CreateClientSellerManager extends Command {
 
     public void setClientSellerId(String clientSellerId) {
         this.clientSellerId = clientSellerId;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
     }
 }

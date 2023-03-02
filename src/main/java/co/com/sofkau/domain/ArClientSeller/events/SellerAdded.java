@@ -1,18 +1,35 @@
 package co.com.sofkau.domain.ArClientSeller.events;
 
-import co.com.sofkau.domain.ArClientSeller.Seller;
 import co.com.sofkau.generic.DomainEvent;
 
 public class SellerAdded extends DomainEvent {
 
-    private final Seller seller;
+    private final String sellerId;
+    private final String name;
+    private final String lname;
+    private final String charge;
 
-    public SellerAdded(Seller seller) {
+    public SellerAdded(String sellerId, String name, String lname, String charge) {
         super("co.com.sofkau.ArClientSeller.Seller.added");
-        this.seller = seller;
+        this.sellerId = sellerId;
+        this.name = name;
+        this.lname = lname;
+        this.charge = charge;
     }
 
-    public Seller getSeller() {
-        return seller;
+    public String getSellerId() {
+        return sellerId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public String getCharge() {
+        return charge;
     }
 }
