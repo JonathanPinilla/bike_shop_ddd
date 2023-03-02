@@ -1,7 +1,6 @@
 package co.com.sofkau.domain.ArBikeM;
 
 import co.com.sofkau.domain.ArBikeM.events.*;
-import co.com.sofkau.domain.ArSale.values.Bikes;
 import co.com.sofkau.domain.common.*;
 import co.com.sofkau.generic.AggregateRoot;
 import co.com.sofkau.generic.DomainEvent;
@@ -10,7 +9,7 @@ import java.util.List;
 
 public class BikesManagement extends AggregateRoot<BikesManagementId> {
 
-    protected List<Bikes> bikesList;
+    protected List<Bike> bikesList;
     protected List<SparePart> sparePartsList;
     protected Date creationDate;
 
