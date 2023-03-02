@@ -3,8 +3,10 @@ package co.com.sofkau.domain.ArSale;
 import co.com.sofkau.domain.ArSale.events.PaymentAdded;
 import co.com.sofkau.domain.ArSale.events.SaleCreated;
 import co.com.sofkau.domain.ArSale.events.ShippingOrderAdded;
-import co.com.sofkau.domain.common.ClientId;
-import co.com.sofkau.domain.common.SellerId;
+import co.com.sofkau.domain.ArSale.values.Bank;
+import co.com.sofkau.domain.ArSale.values.ShippingTime;
+import co.com.sofkau.domain.ArSale.values.State;
+import co.com.sofkau.domain.common.*;
 import co.com.sofkau.generic.EventChange;
 
 public class SaleEventChange extends EventChange {
@@ -14,10 +16,21 @@ public class SaleEventChange extends EventChange {
             sale.seller = SellerId.of(event.getSeller());
         });
         apply((PaymentAdded event) -> {
-            sale.addPayment(event.getPaymentId(), event.getType(), event.getBank(), event.getRecipe());
+            sale.payment = new Payment(
+                    PaymentId.of(event.getPaymentId()),
+                    new Type(event.getType()),
+                    new Bank(event.getBank()),
+                    event.getRecipe()
+            );
         });
         apply((ShippingOrderAdded event) -> {
-            sale.addShippingOrder(event.getShippingOrderId(), event.getDate(), event.getPrice(), event.getShippingTime(), event.getState());
+            sale.shippingOrder = new ShippingOrder(ShippingOrderId.of(
+                    event.getShippingOrderId()),
+                    new Date(event.getDate()),
+                    new Price(event.getPrice()),
+                    new ShippingTime(event.getShippingTime()),
+                    new State(event.getState())
+            );
         });
     }
 
