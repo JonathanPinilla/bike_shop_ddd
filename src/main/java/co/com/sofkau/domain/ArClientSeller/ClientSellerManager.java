@@ -46,6 +46,10 @@ public class ClientSellerManager extends AggregateRoot<ClientSellerManagerId> {
         appendChange(new ClientAdded(clientId.value(), name.value(), lname.value(), address.value())).apply();
     }
 
+    public void changeClientAddress(ClientId clientId, Address address) {
+        appendChange(new ClientAddressChanged(clientId.value(), address.value())).apply();
+    }
+
     public void addSeller(SellerId sellerId, Name name, Lname lname, Charge charge) {
         appendChange(new SellerAdded(sellerId.value(), name.value(), lname.value(), charge.value())).apply();
     }

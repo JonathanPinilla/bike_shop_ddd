@@ -33,5 +33,10 @@ public ClientSellerManagerEventChange(ClientSellerManager clientSellerManager) {
             );
             clientSellerManager.sellerList.add(seller);
         });
+        apply((ClientAddressChanged event) -> {
+            clientSellerManager.clientList.stream()
+                    .filter(client -> client.identity().value().equals(event.getClientId()))
+                    .forEach(client -> client.changeAddress(new Address(event.getAddress())));
+        });
     }
 }

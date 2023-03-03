@@ -35,13 +35,9 @@ public class BikeManagementEventChange extends EventChange {
             bikesManagement.sparePartsList.add(sparePart);
         });
         apply((BikePriceChanged event) -> {
-            Bike bike = bikesManagement.bikesList
-                    .stream()
-                    .filter( b -> b.identity().equals(BikeId.of(event.bikeId())))
-                    .findFirst()
-                    .orElseThrow();
-
-            bike.changePrice(new Price(event.price()));
+            bikesManagement.bikesList.stream()
+                    .filter(bike -> bike.identity().value().equals(event.bikeId()))
+                    .forEach(bike -> bike.changePrice(new Price(event.price())));
         });
     }
 }

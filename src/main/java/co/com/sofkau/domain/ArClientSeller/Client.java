@@ -5,8 +5,6 @@ import co.com.sofkau.domain.common.ClientId;
 import co.com.sofkau.domain.common.Name;
 import co.com.sofkau.generic.Entity;
 
-import java.util.List;
-
 public class Client extends Entity<ClientId> {
 
     protected Name name;
@@ -22,29 +20,7 @@ public class Client extends Entity<ClientId> {
         this.creditCard = creditCard;
     }
 
-    public void updateClientName(String reason, Name name) {
-
-        if (!reason.equals("")) {
-            throw new IllegalArgumentException("Reason should be added to change the name of a Client");
-        }
-        this.name = name;
-
-    }
-
-    public void updateClientLname(String reason, Lname lname) {
-
-        if (!reason.equals("")) {
-            throw new IllegalArgumentException("Reason should be added to change the lname of a Client");
-        }
-        this.lname = lname;
-
-    }
-
-    public void updateClientAddress(String reason, Address address) {
-
-        if (!reason.equals("")) {
-            throw new IllegalArgumentException("Reason should be added to change the address of a Client");
-        }
+    public void changeAddress(Address address) {
         this.address = address;
 
     }
