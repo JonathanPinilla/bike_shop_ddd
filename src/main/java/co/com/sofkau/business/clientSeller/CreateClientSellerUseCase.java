@@ -7,10 +7,12 @@ import co.com.sofkau.domain.ArClientSeller.commands.CreateClientSellerManager;
 import co.com.sofkau.domain.common.ClientSellerManagerId;
 import co.com.sofkau.domain.common.Date;
 import co.com.sofkau.generic.DomainEvent;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Component
 public class CreateClientSellerUseCase implements UseCaseCommand<CreateClientSellerManager> {
 
     EventsRepository eventsRepository;

@@ -8,9 +8,11 @@ import co.com.sofkau.domain.ArClientSeller.values.Address;
 import co.com.sofkau.domain.common.ClientId;
 import co.com.sofkau.domain.common.ClientSellerManagerId;
 import co.com.sofkau.generic.DomainEvent;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class ChangeClientAddressUseCase implements UseCaseCommand<ChangeClientAddressCommand> {
 
     EventsRepository eventsRepository;

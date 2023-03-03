@@ -7,10 +7,12 @@ import co.com.sofkau.domain.ArBikeM.commands.CreateBikeManagerCommand;
 import co.com.sofkau.domain.common.BikesManagementId;
 import co.com.sofkau.domain.common.Date;
 import co.com.sofkau.generic.DomainEvent;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Component
 public class CreateBikeManagerUseCase implements UseCaseCommand<CreateBikeManagerCommand> {
 
     EventsRepository eventsRepository;

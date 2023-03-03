@@ -3,13 +3,14 @@ package co.com.sofkau.business.bike;
 import co.com.sofkau.business.commons.EventsRepository;
 import co.com.sofkau.business.commons.UseCaseCommand;
 import co.com.sofkau.domain.ArBikeM.BikesManagement;
-import co.com.sofkau.domain.ArBikeM.SparePart;
 import co.com.sofkau.domain.ArBikeM.commands.AddSparePartToManager;
 import co.com.sofkau.domain.common.BikesManagementId;
 import co.com.sofkau.generic.DomainEvent;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class AddSparePartUseCase implements UseCaseCommand<AddSparePartToManager> {
 
     private final EventsRepository eventsRepository;

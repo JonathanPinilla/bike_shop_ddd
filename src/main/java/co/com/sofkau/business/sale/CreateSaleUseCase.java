@@ -8,9 +8,11 @@ import co.com.sofkau.domain.common.ClientId;
 import co.com.sofkau.domain.common.SaleId;
 import co.com.sofkau.domain.common.SellerId;
 import co.com.sofkau.generic.DomainEvent;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class CreateSaleUseCase implements UseCaseCommand<CreateSaleCommand> {
 
     EventsRepository eventsRepository;

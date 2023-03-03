@@ -11,9 +11,11 @@ import co.com.sofkau.domain.common.ClientSellerManagerId;
 import co.com.sofkau.domain.common.Name;
 import co.com.sofkau.domain.common.SellerId;
 import co.com.sofkau.generic.DomainEvent;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class AddSellerUseCase implements UseCaseCommand<AddSellerToManager> {
 
     EventsRepository eventsRepository;
