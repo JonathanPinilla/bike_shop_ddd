@@ -22,7 +22,7 @@ public class ShippingOrder extends Entity<ShippingOrderId> {
         this.state = state;
     }
 
-    public void updateState(State state) {
+    public void changeState(State state) {
         this.state = state;
     }
 

@@ -3,6 +3,7 @@ package co.com.sofkau.domain.ArSale;
 import co.com.sofkau.domain.ArSale.events.PaymentAdded;
 import co.com.sofkau.domain.ArSale.events.SaleCreated;
 import co.com.sofkau.domain.ArSale.events.ShippingOrderAdded;
+import co.com.sofkau.domain.ArSale.events.ShippingOrderStateChanged;
 import co.com.sofkau.domain.ArSale.values.Bank;
 import co.com.sofkau.domain.ArSale.values.ShippingTime;
 import co.com.sofkau.domain.ArSale.values.State;
@@ -31,6 +32,9 @@ public class SaleEventChange extends EventChange {
                     new ShippingTime(event.getShippingTime()),
                     new State(event.getState())
             );
+        });
+        apply((ShippingOrderStateChanged event) -> {
+            sale.shippingOrder.changeState(new State(event.state()));
         });
     }
 

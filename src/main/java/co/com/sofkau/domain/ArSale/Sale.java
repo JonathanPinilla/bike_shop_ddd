@@ -53,7 +53,11 @@ public class Sale extends AggregateRoot<SaleId> {
         appendChange(new PaymentAdded(paymentId.value(), type.value(), bank.value(), recipe)).apply();
     }
 
-    public void addShippingOrder(ShippingOrderId shippingOrderId, Date date, Price price, ShippingTime shippingTime, State state){
-        appendChange(new ShippingOrderAdded(shippingOrderId.value(),date.value(),price.value(),shippingTime.value(),state.value())).apply();
+    public void addShippingOrder(ShippingOrderId shippingOrderId, Date date, Price price, ShippingTime shippingTime, State state) {
+        appendChange(new ShippingOrderAdded(shippingOrderId.value(), date.value(), price.value(), shippingTime.value(), state.value())).apply();
+    }
+
+    public void changeShippingOrderState(SaleId saleId, ShippingOrderId shippingOrderId, State state) {
+        appendChange(new ShippingOrderStateChanged(saleId.value(), shippingOrderId.value(), state.value())).apply();
     }
 }
