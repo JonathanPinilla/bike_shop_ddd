@@ -1,0 +1,22 @@
+package co.com.sofkau.domain.ArBikeM.commands;
+
+import co.com.sofkau.generic.Command;
+
+public class ChangeBikePriceCommand extends Command {
+    private final String bikeId;
+    private final Double price;
+
+    public ChangeBikePriceCommand(String bikeId, Double price) {
+        this.bikeId = bikeId;
+        this.price = price;
+    }
+
+    public String getBikeId() {
+        return bikeId;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+}

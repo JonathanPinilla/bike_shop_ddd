@@ -42,6 +42,10 @@ public class BikesManagement extends AggregateRoot<BikesManagementId> {
         appendChange(new BikeAdded(bikeId, brand, type, usage, price, sold)).apply();
     }
 
+    public void changeBikePrice(BikeId bikeId, Price price){
+        appendChange(new BikePriceChanged(bikeId.value(), price.value())).apply();
+    }
+
     public void addSparePart(String sparePartId, String name, String reference, String usage, Double price) {
         appendChange(new SparePartAdded(sparePartId, name, reference, usage, price)).apply();
     }

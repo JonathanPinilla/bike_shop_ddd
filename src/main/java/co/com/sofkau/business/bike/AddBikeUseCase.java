@@ -6,9 +6,11 @@ import co.com.sofkau.domain.ArBikeM.BikesManagement;
 import co.com.sofkau.domain.ArBikeM.commands.AddBikeToManager;
 import co.com.sofkau.domain.common.BikesManagementId;
 import co.com.sofkau.generic.DomainEvent;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class AddBikeUseCase implements UseCaseCommand<AddBikeToManager> {
 
     EventsRepository eventsRepository;

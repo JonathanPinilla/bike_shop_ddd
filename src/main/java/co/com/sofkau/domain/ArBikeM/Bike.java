@@ -11,7 +11,6 @@ public class Bike extends Entity<BikeId> {
     protected Brand brand;
     protected Type type;
     protected Usage usage;
-    //protected List<Maintenance> maintenances;
     protected Price price;
     protected Sold sold;
 
@@ -20,23 +19,15 @@ public class Bike extends Entity<BikeId> {
         this.brand = brand;
         this.type = type;
         this.usage = usage;
-        //this.maintenances = maintenances;
         this.price = price;
         this.sold = sold;
     }
-
-    /*public void updateMaintenance(Maintenance maintenance) {
-        this.maintenances.add(maintenance);
-    }*/
 
     public void updateSold(Sold sold) {
         this.sold = sold;
     }
 
-    public void changePrice(java.lang.String reason, Price price) {
-        if (!reason.equals("IPC")) {
-            throw new IllegalArgumentException("The reason should be IPC or else you can't change the price");
-        }
+    public void changePrice(Price price) {
         this.price = price;
     }
 
@@ -51,10 +42,6 @@ public class Bike extends Entity<BikeId> {
     public Usage usage(){
         return usage;
     }
-
-    /*public List<Maintenance> maintenances(){
-        return maintenances;
-    }*/
 
     public Price price(){
         return price;

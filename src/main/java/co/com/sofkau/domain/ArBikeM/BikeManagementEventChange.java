@@ -1,9 +1,6 @@
 package co.com.sofkau.domain.ArBikeM;
 
-import co.com.sofkau.domain.ArBikeM.events.BikeAdded;
-import co.com.sofkau.domain.ArBikeM.events.BikeCreated;
-import co.com.sofkau.domain.ArBikeM.events.BikeManagementCreated;
-import co.com.sofkau.domain.ArBikeM.events.SparePartAdded;
+import co.com.sofkau.domain.ArBikeM.events.*;
 import co.com.sofkau.domain.ArBikeM.values.Brand;
 import co.com.sofkau.domain.ArBikeM.values.Reference;
 import co.com.sofkau.domain.ArBikeM.values.Sold;
@@ -36,6 +33,15 @@ public class BikeManagementEventChange extends EventChange {
                     new Price(event.getPrice())
             );
             bikesManagement.sparePartsList.add(sparePart);
+        });
+        apply((BikePriceChanged event) -> {
+            Bike bike = bikesManagement.bikesList
+                    .stream()
+                    .filter( b -> b.identity().equals(BikeId.of(event.bikeId())))
+                    .findFirst()
+                    .orElseThrow();
+
+            bike.changePrice(new Price(event.price()));
         });
     }
 }
