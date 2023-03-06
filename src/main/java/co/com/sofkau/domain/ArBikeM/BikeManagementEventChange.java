@@ -8,10 +8,14 @@ import co.com.sofkau.domain.ArBikeM.values.Usage;
 import co.com.sofkau.domain.common.*;
 import co.com.sofkau.generic.EventChange;
 
+import java.util.ArrayList;
+
 public class BikeManagementEventChange extends EventChange {
     public BikeManagementEventChange(BikesManagement bikesManagement) {
         apply((BikeManagementCreated event) -> {
             bikesManagement.creationDate = event.getCreationDate();
+            bikesManagement.bikesList = new ArrayList<>();
+            bikesManagement.sparePartsList = new ArrayList<>();
         });
         apply((BikeAdded event) -> {
             Bike bike = new Bike(
