@@ -4,15 +4,21 @@ import co.com.sofkau.generic.DomainEvent;
 
 public class ClientCreated extends DomainEvent {
 
+    private final String clientId;
     private final String name;
     private final String lname;
     private final String address;
 
-    public ClientCreated(String name, String lname, String address) {
+    public ClientCreated(String clientId, String name, String lname, String address) {
         super("co.com.sofkau.ArClientSeller.Client.created");
+        this.clientId = clientId;
         this.name = name;
         this.lname = lname;
         this.address = address;
+    }
+
+    public String getClientId() {
+        return clientId;
     }
 
     public String getName() {

@@ -1,17 +1,19 @@
 package co.com.sofkau.domain.ArClientSeller.events;
 
-import co.com.sofkau.domain.common.Date;
 import co.com.sofkau.generic.DomainEvent;
 
-public class ClientSellerCreated extends DomainEvent {
-    private final Date creationDate;
+import java.time.LocalDate;
 
-    public ClientSellerCreated(Date creationDate) {
+public class ClientSellerCreated extends DomainEvent {
+
+    LocalDate creationDate;
+    public ClientSellerCreated(LocalDate creationDate){
         super("co.com.sofkau.ArClientSeller");
         this.creationDate = creationDate;
     }
 
-    public Date getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
+
 }

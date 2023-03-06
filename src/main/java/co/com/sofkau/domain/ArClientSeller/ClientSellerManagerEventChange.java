@@ -3,16 +3,20 @@ package co.com.sofkau.domain.ArClientSeller;
 import co.com.sofkau.domain.ArClientSeller.events.*;
 import co.com.sofkau.domain.ArClientSeller.values.Address;
 import co.com.sofkau.domain.ArClientSeller.values.Charge;
+import co.com.sofkau.domain.ArClientSeller.values.CreditCard;
 import co.com.sofkau.domain.ArClientSeller.values.Lname;
-import co.com.sofkau.domain.common.ClientId;
-import co.com.sofkau.domain.common.Name;
-import co.com.sofkau.domain.common.SellerId;
+import co.com.sofkau.domain.common.*;
 import co.com.sofkau.generic.EventChange;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ClientSellerManagerEventChange extends EventChange {
 public ClientSellerManagerEventChange(ClientSellerManager clientSellerManager) {
         apply((ClientSellerCreated event) -> {
-            clientSellerManager.creationDate = event.getCreationDate();
+            clientSellerManager.creationDate = new Date(event.getCreationDate());
+            clientSellerManager.clientList = new ArrayList<>();
+            clientSellerManager.sellerList = new ArrayList<>();
         });
         apply((ClientAdded event) -> {
             Client client = new Client(
@@ -20,7 +24,7 @@ public ClientSellerManagerEventChange(ClientSellerManager clientSellerManager) {
                     new Name(event.getName()),
                     new Lname(event.getLname()),
                     new Address(event.getAddress()),
-                    null
+                    new CreditCard()
                     );
             clientSellerManager.clientList.add(client);
         });

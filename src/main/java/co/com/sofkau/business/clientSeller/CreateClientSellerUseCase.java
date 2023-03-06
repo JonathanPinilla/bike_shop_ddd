@@ -27,7 +27,7 @@ public class CreateClientSellerUseCase implements UseCaseCommand<CreateClientSel
 
         var clientSeller = new ClientSellerManager(
                 ClientSellerManagerId.of(command.getClientSellerId()),
-                new Date(LocalDate.now())
+                command.getCreationDate()
         );
 
         return clientSeller.getUncommittedChanges().stream().map(eventsRepository::saveEvent).toList();

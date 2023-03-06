@@ -8,6 +8,7 @@ import co.com.sofkau.domain.common.*;
 import co.com.sofkau.generic.AggregateRoot;
 import co.com.sofkau.generic.DomainEvent;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class ClientSellerManager extends AggregateRoot<ClientSellerManagerId> {
@@ -17,7 +18,8 @@ public class ClientSellerManager extends AggregateRoot<ClientSellerManagerId> {
     protected List<Seller> sellerList;
     protected Date creationDate;
 
-    public ClientSellerManager(ClientSellerManagerId clientSellerId, Date creationDate) {
+
+    public ClientSellerManager(ClientSellerManagerId clientSellerId, LocalDate creationDate) {
         super(clientSellerId);
         subscribe(new ClientSellerManagerEventChange(this));
         appendChange(new ClientSellerCreated(creationDate)).apply();
@@ -34,8 +36,8 @@ public class ClientSellerManager extends AggregateRoot<ClientSellerManagerId> {
         return clientSellerManager;
     }
 
-    public void createClient(Name name, Lname lname, Address address) {
-        appendChange(new ClientCreated(name.value(), lname.value(), address.value())).apply();
+    public void createClient(ClientId clientId, Name name, Lname lname, Address address) {
+        appendChange(new ClientCreated(clientId.value(), name.value(), lname.value(), address.value())).apply();
     }
 
     public void createSeller(Name name, Lname lname, Charge charge) {
