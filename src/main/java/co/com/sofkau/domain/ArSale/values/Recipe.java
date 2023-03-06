@@ -24,6 +24,10 @@ public class Recipe implements ValueObject<Recipe.Props> {
         this.seller = seller;
     }
 
+    public Recipe() {
+
+    }
+
     @Override
     public Props value() {
         return new Props() {

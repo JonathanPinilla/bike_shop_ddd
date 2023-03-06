@@ -4,8 +4,14 @@ import co.com.sofkau.generic.Command;
 
 public class CreateSaleCommand extends Command {
     private String saleId;
-    private String client;
-    private String seller;
+    private String clientId;
+    private String sellerId;
+
+    public CreateSaleCommand(String saleId, String clientId, String sellerId) {
+        this.saleId = saleId;
+        this.clientId = clientId;
+        this.sellerId = sellerId;
+    }
 
     public String getSaleId() {
         return saleId;
@@ -15,19 +21,19 @@ public class CreateSaleCommand extends Command {
         this.saleId = saleId;
     }
 
-    public String getClient() {
-        return client;
+    public String getClientId() {
+        return clientId;
     }
 
-    public void setClient(String client) {
-        this.client = client;
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 
-    public String getSeller() {
-        return seller;
+    public String getSellerId() {
+        return sellerId;
     }
 
-    public void setSeller(String seller) {
-        this.seller = seller;
+    public void setSellerId(String sellerId) {
+        this.sellerId = sellerId;
     }
 }

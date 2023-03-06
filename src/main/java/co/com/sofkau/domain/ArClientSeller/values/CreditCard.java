@@ -21,6 +21,10 @@ public class CreditCard implements ValueObject<CreditCard.Params> {
         this.cvv = cvv;
     }
 
+    public CreditCard() {
+
+    }
+
     @Override
     public Params value() {
         return new Params() {

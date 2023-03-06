@@ -23,7 +23,7 @@ public class CreateSaleUseCase implements UseCaseCommand<CreateSaleCommand> {
 
     @Override
     public List<DomainEvent> apply(CreateSaleCommand command) {
-        var sale = new Sale(SaleId.of(command.getSaleId()), ClientId.of(command.getClient()), SellerId.of(command.getSeller()));
+        var sale = new Sale(SaleId.of(command.getSaleId()), ClientId.of(command.getClientId()), SellerId.of(command.getSellerId()));
         return sale.getUncommittedChanges().stream().map(eventsRepository::saveEvent).toList();
     }
 }
